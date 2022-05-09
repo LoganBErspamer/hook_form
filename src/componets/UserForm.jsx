@@ -31,22 +31,47 @@ const confirmPasswordHandler = (e)=>{
             <div>
             <label>First Name:</label>
             <input type="text" name="First Name" onChange={firstNameHandler} value={firstName} />
+            {
+               firstName && firstName.length<2?
+                <span style={{color: "red"}}>First name must be more than 1 character</span>:
+                ""
+            }
             </div>
             <div>
             <label>Last Name:</label>
             <input type="text" name="Last Name" onChange={lastNameHandler} value={lastName} />
+            {
+                lastName && lastName.length<2?
+                <span style={{color: "red"}}>Last name must be more than 1 character</span>:
+                ""
+            }
             </div>
             <div>
             <label>Email:</label>
             <input type="text" name="Email" onChange={emailHandler} value={email} />
+            {
+               email && email.length<6?
+                <span style={{color: "red"}}>Email name must be more than 5 character</span>:
+                ""
+            }
             </div>
             <div>
             <label>Password:</label>
             <input type="password" name="Password" onChange={passwordHandler} value={password} />
+            {
+               password && password.length<9?
+                <span style={{color: "red"}}>First name must be more than 8 character</span>:
+                ""
+            }
             </div>
             <div>
             <label>Confirm Password:</label>
             <input type="password" name="Confirm Password" onChange={confirmPasswordHandler} value={confirmPassword}/>
+            {
+                confirmPassword && confirmPassword !== password?
+                <span style={{color:"red"}}>Password and Confirm Password must match</span>:
+                ""
+            }
             </div>
         </form>
         </div>
